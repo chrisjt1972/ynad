@@ -1,1 +1,6 @@
-<h1>Dashboard</h1>
+<div class="text-center">
+  <h1>Dashboard</h1>
+  <% unless current_user.ynab_connected? %>
+    <%= link_to 'Connect YNAB', '', class: 'btn btn-info' %>
+  <% end %>
+</div>
