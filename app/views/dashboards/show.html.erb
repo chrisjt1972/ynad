@@ -1,6 +1,6 @@
 <div class="text-center">
   <h1>Dashboard</h1>
   <% unless current_user.ynab_connected? %>
-    <%= link_to 'Connect YNAB', '', class: 'btn btn-info' %>
+    <%= link_to 'Connect YNAB', ynab_oauth_url, class: 'btn btn-info' %>
   <% end %>
 </div>

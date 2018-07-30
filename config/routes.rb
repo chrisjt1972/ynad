@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       root to: 'dashboards#show', as: :authenticated_root
     end
   end
+
+  get :callbacks, to: 'callbacks#new'
 end

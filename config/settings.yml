@@ -1,0 +1,13 @@
+default: &default
+  ynab_base_url: 'https://app.youneedabudget.com'
+  base_url: 'https://yanab.herokuapp.com'
+  redirect_uri: 'callbacks'
+  ynab_client_id: <%= ENV.fetch('YNAB_CLIENT_ID') %>
+
+development:
+  <<: *default
+  base_url: 'http://localhost:3000'
+
+production:
+  <<: *default
+
