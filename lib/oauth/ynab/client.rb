@@ -29,6 +29,10 @@ module OAuth
       def redirect_uri
         "#{Settings.base_url}/#{Settings.redirect_uri}"
       end
+
+      def ynab_client_secret
+        Settings.ynab_client_secret
+      end
     end
   end
 end
