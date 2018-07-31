@@ -1,0 +1,8 @@
+<div class="">
+  <% flash.each do |key, message| %>
+    <div class="alert alert-<%= key == 'success' ? 'success' : 'danger' %>">
+      <%= message %>
+      <%= link_to "&times;".html_safe, '', data: {dismiss: "alert"}, class: "close" %>
+    </div>
+  <% end %>
+</div>
