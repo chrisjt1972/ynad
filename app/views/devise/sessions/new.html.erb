@@ -1,5 +1,6 @@
 <div class="col-md-4 offset-md-4 pt-5">
-  <h2 class="text-center">Log In</h2>
+  <h2 class="text-center">Login</h2>
+  <%= render 'shared/flash_messages' %>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
@@ -9,7 +10,7 @@
     </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign Up", class:"btn btn-primary" %>
+        <%= f.button :submit, "Login", class:"btn btn-primary" %>
       </div>
     <% end %>
 
