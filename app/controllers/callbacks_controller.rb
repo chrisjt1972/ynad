@@ -1,15 +1,11 @@
 class CallbacksController < ApplicationController
   def new
-    fetch_code_from_params
-    response = current_user.fetch_access_token(@code)
-    current_user.update(ynab_access_token: response.dig('access_token'))
+    user = YNAB::CallbacksService.new(current_user, params).execute
+
+    if user.blank? || !user.ynab_connected?
+      flash[:danger] = 'Error connecting to YNAB'
+    end
 
     redirect_to root_url
-  end
-
-  private
-
-  def fetch_code_from_params
-    @code = params.dig('code')
   end
 end

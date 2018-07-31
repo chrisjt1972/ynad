@@ -4,8 +4,16 @@ module OAuth
       include HTTParty
 
       def authorization_url
-        "#{ynab_base_url}/oauth/authorize?client_id=#{ynab_client_id}"\
-          "&redirect_uri=#{redirect_uri}&response_type=code"
+        if Rails.env.production?
+          "#{ynab_base_url}/oauth/authorize?client_id=#{ynab_client_id}"\
+            "&redirect_uri=#{redirect_uri}&response_type=code"
+        elsif Rails.env.development?
+          # Redirect URI would be `localhost:3000/callbacks`
+          # YNAB auth token will be set in callbacks controller.
+          # Setting of the YNAB auth token requires ENV['YNAB_DEV_AUTH_TOKEN']
+          # to be set.
+          redirect_uri
+        end
       end
 
       def fetch_access_token(code)
