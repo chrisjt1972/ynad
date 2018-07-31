@@ -8,6 +8,7 @@ default: &default
 development:
   <<: *default
   base_url: 'http://localhost:3000'
+  ynab_access_token: <%= ENV.fetch('YNAB_PERSONAL_ACCESS_TOKEN') %>
 
 production:
   <<: *default

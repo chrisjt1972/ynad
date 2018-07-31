@@ -1,5 +1,10 @@
 <div class="text-center">
+  <div class="col-md-4 offset-md-4 mt-4">
+    <%= render 'shared/flash_messages' %>
+  </div>
+
   <h1>Dashboard</h1>
+
   <% unless current_user.ynab_connected? %>
     <%= link_to 'Connect YNAB', ynab_oauth_url, class: 'btn btn-info' %>
   <% end %>
