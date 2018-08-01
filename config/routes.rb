@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   end
 
   get :callbacks, to: 'callbacks#new'
+  post :import, to: 'ynab_imports#create'
 end

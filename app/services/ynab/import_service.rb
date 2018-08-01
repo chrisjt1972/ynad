@@ -1,7 +1,7 @@
 module YNAB
   class ImportService < BaseService
     def execute
-      puts "hola"
+      # Connect YNAB here.
     end
   end
 end

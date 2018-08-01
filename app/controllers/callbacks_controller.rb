@@ -5,6 +5,7 @@ class CallbacksController < ApplicationController
     if user.blank? || !user.ynab_connected?
       flash[:danger] = 'Error connecting to YNAB.'
     else
+      binding.pry
       YNABImportJob.perform_later(user_id: current_user.id)
 
       flash[:success] = 'YNAB has successfully connected. Your data will be imported shortly.'

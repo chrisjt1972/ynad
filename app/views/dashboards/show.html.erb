@@ -4,6 +4,7 @@
   </div>
 
   <h1>Dashboard</h1>
+  <%= link_to 'Refresh', import_path, method: :post %>
 
   <% unless current_user.ynab_connected? %>
     <%= link_to 'Connect YNAB', ynab_oauth_url, class: 'btn btn-info' %>
