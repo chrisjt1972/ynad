@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  # TODO: Restrict access
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   devise_scope :user do
     unauthenticated :user do
       root to: 'devise/registrations#new'
