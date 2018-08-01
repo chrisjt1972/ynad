@@ -14,6 +14,8 @@ module YNAB
       budgets = budget_response.data.budgets
 
       budgets.each do |budget|
+        next if budget_exists?(budget)
+
         Budgets::CreateService.new(
           current_user,
           {name: budget.name, ynab_id: budget.id}
@@ -23,6 +25,10 @@ module YNAB
 
     def client
       @client ||= YNAB::API.new(current_user.ynab_access_token)
+    end
+
+    def budget_exists?(budget)
+      Budget.find_by(ynab_id: budget.id).present?
     end
   end
 end
