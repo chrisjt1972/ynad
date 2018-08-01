@@ -7,5 +7,11 @@
 
   <% unless current_user.ynab_connected? %>
     <%= link_to 'Connect YNAB', ynab_oauth_url, class: 'btn btn-info' %>
+  <% else %>
+    <%= link_to 'Refresh', import_path, method: :post %>
+  <% end %>
+
+  <% current_user.budgets.each do |budget| %>
+    <p><%= budget.name %></p>
   <% end %>
 </div>

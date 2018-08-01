@@ -1,10 +1,5 @@
 module YNAB
-  class CallbacksService
-    def initialize(current_user, params)
-      @current_user = current_user
-      @params = params.dup
-    end
-
+  class CallbacksService < BaseService
     def execute
       if Rails.env.production?
         fetch_code_from_params
