@@ -12,6 +12,12 @@
   <% end %>
 
   <% current_user.budgets.each do |budget| %>
+    <h1>Budget</h1>
     <p><%= budget.name %></p>
+
+    <h1>Category Groups</h1>
+    <% budget.category_groups.each do |category_group| %>
+      <p><%= category_group.name %></p>
+    <% end %>
   <% end %>
 </div>
