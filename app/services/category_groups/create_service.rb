@@ -10,9 +10,9 @@ module CategoryGroups
       end
 
     rescue ActiveRecord::RecordInvalid => e
-      fail(error: e.message, resource: budget)
+      fail(error: e.message)
     rescue StandardError => e
-      fail(error: e.message, resource: budget)
+      fail(error: e.message)
     end
   end
 end

@@ -18,6 +18,11 @@
     <h1>Category Groups</h1>
     <% budget.category_groups.each do |category_group| %>
       <p><%= category_group.name %></p>
+
+      <h1>Categories</h1>
+      <% category_group.categories.each do |category| %>
+        <p><%= category.name %></p>
+      <% end %>
     <% end %>
   <% end %>
 </div>
