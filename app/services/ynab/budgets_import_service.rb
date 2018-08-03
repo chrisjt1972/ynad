@@ -19,7 +19,7 @@ module YNAB
     private
 
     def budget_exists?(budget)
-      Budget.find_by(ynab_id: budget.id).present?
+      ::Budget.find_by(ynab_id: budget.id).present?
     end
   end
 end

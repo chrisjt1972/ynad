@@ -8,12 +8,16 @@ module YNAB
         category_groups = category_group_response.data.category_groups
 
         category_groups.each do |category_group|
-          cached_category_group = CategoryGroups::CreateService.new(
-            budget,
-            category_group_params(category_group)
-          ).execute
+          unless new_category_group?(category_group)
+            cached_category_group = CategoryGroups::CreateService.new(
+              budget,
+              category_group_params(category_group)
+            ).execute
+          end
 
           category_group.categories.each do |category|
+            next if category_exists?(category)
+
             Categories::CreateService.new(
               cached_category_group,
               category_params(category)
@@ -25,12 +29,20 @@ module YNAB
 
     private
 
+    def new_category_group?(ynab_category_group)
+      ::CategoryGroup.find_by(ynab_id: ynab_category_group.id).present?
+    end
+
     def category_group_params(category_group)
       {
         ynab_id: category_group.id,
         name: category_group.name,
         hidden: category_group.hidden
       }
+    end
+
+    def category_exists?(category)
+      ::Category.find_by(ynab_id: category.id).present?
     end
 
     def category_params(category)
