@@ -3,4 +3,5 @@ class Budget < ApplicationRecord
   has_many :category_groups
 
   validates_uniqueness_of :ynab_id
+  validates_presence_of :name, :ynab_id
 end
