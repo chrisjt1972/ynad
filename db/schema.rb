@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_03_053017) do
+ActiveRecord::Schema.define(version: 2018_08_03_062815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_053017) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_budgets_on_user_id"
+    t.index ["ynab_id"], name: "index_budgets_on_ynab_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_053017) do
     t.datetime "updated_at", null: false
     t.string "ynab_id"
     t.index ["category_group_id"], name: "index_categories_on_category_group_id"
+    t.index ["ynab_id"], name: "index_categories_on_ynab_id"
   end
 
   create_table "category_groups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_053017) do
     t.datetime "updated_at", null: false
     t.string "ynab_id"
     t.index ["budget_id"], name: "index_category_groups_on_budget_id"
+    t.index ["ynab_id"], name: "index_category_groups_on_ynab_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
