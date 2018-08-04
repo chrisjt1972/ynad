@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_08_03_062815) do
   create_table "budgets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "ynab_id"
-    t.bigint "user_id"
+    t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_budgets_on_user_id"
@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2018_08_03_062815) do
     t.index ["ynab_id"], name: "index_categories_on_ynab_id"
   end
 
-  create_table "category_groups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "category_groups", force: :cascade do |t|
     t.string "name"
     t.boolean "hidden", default: false
-    t.bigint "budget_id"
+    t.uuid "budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ynab_id"
