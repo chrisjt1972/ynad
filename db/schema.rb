@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_03_062815) do
+ActiveRecord::Schema.define(version: 2018_08_04_061029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.boolean "on_budget", default: false
+    t.boolean "closed", default: false
+    t.decimal "balance"
+    t.decimal "cleared_balance"
+    t.decimal "uncleared_balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "budget_accounts", force: :cascade do |t|
+    t.uuid "budget_id"
+    t.uuid "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_budget_accounts_on_account_id"
+    t.index ["budget_id"], name: "index_budget_accounts_on_budget_id"
+  end
 
   create_table "budgets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
