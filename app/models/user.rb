@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def fetch_access_token(code)
     ::OAuth::YNAB::Client.new.fetch_access_token(code)
   end
+
+  def accounts
+    budgets.map(&:accounts).flatten
+  end
 end

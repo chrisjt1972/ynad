@@ -11,21 +11,11 @@
     <%= link_to 'Refresh', import_path, method: :post %>
   <% end %>
 
-  <% current_user.budgets.each do |budget| %>
-    <h1>Budget</h1>
-    <p><%= budget.name %></p>
-
-    <h1>Accounts</h1>
-    <p><%= budget.accounts.map(&:name) %></p>
-
-    <h1>Category Groups</h1>
-    <% budget.category_groups.each do |category_group| %>
-      <p><%= category_group.name %></p>
-
-      <h1>Categories</h1>
-      <% category_group.categories.each do |category| %>
-        <p><%= category.name %></p>
-      <% end %>
-    <% end %>
-  <% end %>
+  <div class="d-flex justify-content-around mx-5">
+    <%= render partial: 'card', locals: { title: current_user.budgets.count, subtitle: 'Budgets' } %>
+    <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
+    <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
+    <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
+    <%# <%= render partial: 'card', locals: { title: current_user.budgets.accounts.count } %>
+  </div>
 </div>
