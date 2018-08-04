@@ -2,7 +2,8 @@ class CreateAccounts < ActiveRecord::Migration[5.2]
   def change
     create_table :accounts, id: :uuid do |t|
       t.string :name
-      t.string :type
+      t.string :kind
+      t.uuid :ynab_id
       t.boolean :on_budget, default: false
       t.boolean :closed, default: false
       t.decimal :balance

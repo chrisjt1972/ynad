@@ -15,6 +15,9 @@
     <h1>Budget</h1>
     <p><%= budget.name %></p>
 
+    <h1>Accounts</h1>
+    <p><%= budget.accounts.map(&:name) %></p>
+
     <h1>Category Groups</h1>
     <% budget.category_groups.each do |category_group| %>
       <p><%= category_group.name %></p>

@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 2018_08_04_061029) do
 
   create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "kind"
+    t.uuid "ynab_id"
     t.boolean "on_budget", default: false
     t.boolean "closed", default: false
     t.decimal "balance"

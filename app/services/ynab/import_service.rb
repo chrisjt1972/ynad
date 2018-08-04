@@ -6,6 +6,7 @@ module YNAB
       # Connect YNAB here.
       fetch_and_store_budgets
       fetch_and_store_categories
+      fetch_and_store_accounts
     end
 
     private
@@ -16,6 +17,10 @@ module YNAB
 
     def fetch_and_store_categories
       CategoriesImportService.new(current_user).execute!
+    end
+
+    def fetch_and_store_accounts
+      AccountsImportService.new(current_user).execute!
     end
   end
 end
