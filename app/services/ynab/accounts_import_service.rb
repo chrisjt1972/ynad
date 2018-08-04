@@ -8,6 +8,7 @@ module YNAB
         accounts = accounts_response.data.accounts
 
         accounts.each do |account|
+          next if account_exists?(account)
           Accounts::CreateService.new(
             budget,
             account_params(account)
@@ -29,6 +30,10 @@ module YNAB
         cleared_balance: ynab_account.cleared_balance,
         uncleared_balance: ynab_account.uncleared_balance
       }
+    end
+
+    def account_exists?(ynab_account)
+      ::Account.find_by(ynab_id: ynab_account.id).present?
     end
   end
 end
