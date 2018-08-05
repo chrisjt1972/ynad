@@ -7,11 +7,13 @@
     <%= current_date %>
   </h1>
 
-  <div class="d-flex justify-content-around m-5">
-    <%= render partial: 'card', locals: { title: current_user.budgets.count, subtitle: 'Budgets' } %>
-    <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
-    <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
-    <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
-    <%# <%= render partial: 'card', locals: { title: current_user.budgets.accounts.count } %>
-  </div>
+  <% if current_user.ynab_connected? %>
+    <div class="d-flex justify-content-around m-5">
+      <%= render partial: 'card', locals: { title: current_user.budgets.count, subtitle: 'Budgets' } %>
+      <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
+      <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
+      <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
+      <%# <%= render partial: 'card', locals: { title: current_user.budgets.accounts.count } %>
+    </div>
+  <% end %>
 </div>
