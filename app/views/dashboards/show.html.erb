@@ -3,15 +3,11 @@
     <%= render 'shared/flash_messages' %>
   </div>
 
-  <h1>Dashboard</h1>
+  <h1>
+    <%= current_date %>
+  </h1>
 
-  <% unless current_user.ynab_connected? %>
-    <%= link_to 'Connect YNAB', ynab_oauth_url, class: 'btn btn-info' %>
-  <% else %>
-    <%= link_to 'Refresh', import_path, method: :post %>
-  <% end %>
-
-  <div class="d-flex justify-content-around mx-5">
+  <div class="d-flex justify-content-around m-5">
     <%= render partial: 'card', locals: { title: current_user.budgets.count, subtitle: 'Budgets' } %>
     <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
     <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
