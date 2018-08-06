@@ -8,12 +8,14 @@
   </h1>
 
   <% if current_user.ynab_connected? %>
-    <div class="d-flex justify-content-around m-5">
-      <%= render partial: 'card', locals: { title: current_user.budgets.count, subtitle: 'Budgets' } %>
-      <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
-      <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
-      <%= render partial: 'card', locals: { title: current_user.accounts.count, subtitle: 'Accounts' } %>
-      <%# <%= render partial: 'card', locals: { title: current_user.budgets.accounts.count } %>
+    <div class="d-flex justify-content-center mt-4">
+      <div class="col-md-3 text-success">
+        <%= render partial: 'card', locals: { title: current_user.current_month_income, subtitle: 'Income' } %>
+      </div>
+
+      <div class="col-md-3 text-danger">
+        <%= render partial: 'card', locals: { title: current_user.current_month_expense, subtitle: 'Expenses' } %>
+      </div>
     </div>
   <% end %>
 </div>
