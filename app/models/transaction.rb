@@ -2,11 +2,16 @@ class Transaction < ApplicationRecord
   belongs_to :account
 
   def current_month?
-    date.between?(Time.now.last_month.beginning_of_month,
-                  Time.now.last_month.end_of_month)
+    date.between?(Time.now.beginning_of_month,
+                  Time.now.end_of_month)
   end
 
-  def expense
+  def within_90_days?
+    date.between?(90.days.ago.beginning_of_month,
+                  Time.now.end_of_month)
+  end
+
+  def expense?
     amount < 0
   end
 
