@@ -37,4 +37,8 @@ class User < ApplicationRecord
   def transactions
     accounts.map(&:transactions).flatten
   end
+
+  def net_worth
+    accounts.sum(&:balance) / 1000
+  end
 end
