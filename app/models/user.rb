@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   def current_month_expense
     accounts.map(&:transactions).flatten.select do |transaction|
-      transaction.current_month? && transaction.expense
+      transaction.current_month? && transaction.expense?
     end.flatten.sum(&:amount).abs / 1000
   end
 
@@ -32,5 +32,9 @@ class User < ApplicationRecord
     accounts.map(&:transactions).flatten.select do |transaction|
       transaction.current_month? && transaction.income?
     end.flatten.sum(&:amount) / 1000
+  end
+
+  def transactions
+    accounts.map(&:transactions).flatten
   end
 end

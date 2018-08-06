@@ -41,6 +41,12 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'font-awesome-sass', '~> 5.2.0'
 
+# Charts
+gem 'chartkick'
+
+# Grouping for charts
+gem 'groupdate'
+
 gem 'simple_form'
 
 # Auth
