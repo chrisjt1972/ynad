@@ -8,7 +8,7 @@
   </h1>
 
   <% if current_user.ynab_connected? %>
-    <div class="d-flex justify-content-center mt-4">
+    <div class="d-flex flex-wrap justify-content-center mt-4">
       <div class="col-md-3 text-success">
         <%= render partial: 'card', locals: { title: current_user.current_month_income, subtitle: 'Income' } %>
       </div>
