@@ -4,7 +4,9 @@
   </div>
 
   <h1>
-    <%= current_date %>
+    <div class="border-bottom pb-5 mx-5">
+      <%= current_date %>
+    </div>
   </h1>
 
   <% if current_user.ynab_connected? %>
@@ -26,6 +28,13 @@
       <div class="col-md-6">
         <%= render 'bank_balances' %>
       </div>
+    </div>
+  <% else %>
+    <div class="col-md-4 offset-md-4 mt-4  text-left">
+      <div class="text-center mb-4">
+        <%= link_to 'Connect YNAB', ynab_oauth_url, class: 'btn btn-info mr-2' %>
+      </div>
+      <%= render 'shared/ynab_not_connected' %>
     </div>
   <% end %>
 </div>
