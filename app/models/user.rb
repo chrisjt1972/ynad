@@ -17,4 +17,20 @@ class User < ApplicationRecord
   def fetch_access_token(code)
     ::OAuth::YNAB::Client.new.fetch_access_token(code)
   end
+
+  def accounts
+    budgets.map(&:accounts).flatten
+  end
+
+  def current_month_expense
+    accounts.map(&:transactions).flatten.select do |transaction|
+      transaction.current_month? && transaction.expense
+    end.flatten.sum(&:amount) / 1000
+  end
+
+  def current_month_income
+    accounts.map(&:transactions).flatten.select do |transaction|
+      transaction.current_month? && transaction.income?
+    end.flatten.sum(&:amount) / 1000
+  end
 end

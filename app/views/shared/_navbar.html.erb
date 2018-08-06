@@ -7,6 +7,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
+        <% if current_user.ynab_connected? %>
+          <li><%= link_to 'Refresh YNAB Data', import_path, method: :post, class: 'btn btn-info mr-2' %></li>
+        <% else %>
+          <li><%= link_to 'Connect YNAB', ynab_oauth_url, class: 'btn btn-info mr-2' %></li>
+        <% end %>
         <li class="nav-item dropdown">
           <%= link_to current_user.email, '', class: 'nav-link dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' } %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
