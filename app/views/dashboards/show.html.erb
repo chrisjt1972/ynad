@@ -3,11 +3,15 @@
     <%= render 'shared/flash_messages' %>
   </div>
 
-  <h1>
-    <div class="border-bottom pb-5 mx-5">
-      <%= current_date %>
+  <div class="border-bottom pb-5 mx-5">
+    <div class="d-flex flex-wrap justify-content-between">
+      <span class="h1"><%= current_date %></span>
+
+      <% if current_user.budgets.any? %>
+        <%= render 'filter_form' %>
+      <% end %>
     </div>
-  </h1>
+  </div>
 
   <% if current_user.ynab_connected? %>
     <div class="d-flex flex-wrap justify-content-center mt-4">
