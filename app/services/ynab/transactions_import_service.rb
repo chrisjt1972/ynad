@@ -12,6 +12,8 @@ module YNAB
           transactions = transactions_response.data.transactions
 
           transactions.each do |transaction|
+            next if transaction_exists?(transaction)
+
             Transactions::CreateService.new(
               account,
               transaction_params(transaction)
@@ -23,13 +25,18 @@ module YNAB
 
     private
 
+    def transaction_exists?(ynab_transaction)
+      Transaction.find_by(ynab_id: ynab_transaction.id)
+    end
+
     def transaction_params(transaction)
       {
         date: transaction.date,
         amount: transaction.amount,
         cleared: transaction.cleared,
         approved: transaction.approved,
-        deleted: transaction.deleted
+        deleted: transaction.deleted,
+        ynab_id: transaction.id
       }
     end
   end
