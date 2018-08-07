@@ -3,6 +3,8 @@ module YNAB
     attr_reader :current_user
 
     def execute
+      current_user.update_refresh_count!
+
       # Connect YNAB here.
       fetch_and_store_budgets
       fetch_and_store_categories

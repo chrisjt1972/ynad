@@ -6,6 +6,11 @@ class User < ApplicationRecord
 
   has_many :budgets
 
+  def update_refresh_count!
+    self.refresh_count += 1
+    self.save!
+  end
+
   def ynab_connected?
     self.ynab_access_token.present?
   end
