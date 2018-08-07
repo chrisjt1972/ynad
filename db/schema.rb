@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_05_190312) do
+ActiveRecord::Schema.define(version: 2018_08_07_214945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2018_08_05_190312) do
     t.boolean "deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "ynab_id"
     t.index ["account_id"], name: "index_transactions_on_account_id"
   end
 
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 2018_08_05_190312) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ynab_access_token"
+    t.integer "refresh_count", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

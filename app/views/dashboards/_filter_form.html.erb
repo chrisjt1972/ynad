@@ -1,0 +1,14 @@
+<%= form_tag root_path, method: :get, class: 'form-inline' do |f| %>
+  <%= select_tag(
+    'budget_id',
+    options_from_collection_for_select(
+      current_user.budgets,
+      'id',
+      'name',
+      selected: (params[:budget_id] || current_user.budgets.first)
+    ),
+    class: 'form-control mr-2'
+  ) %>
+
+  <%= submit_tag 'Filter', class: 'btn btn-info' %>
+<% end %>

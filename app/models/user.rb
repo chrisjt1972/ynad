@@ -4,7 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
+  YNAB_API_LIMIT = 200
+
   has_many :budgets
+
+  def update_refresh_count!
+    self.refresh_count += 1
+    self.save!
+  end
+
+  def ynab_api_limit_reached?
+    refresh_count >= YNAB_API_LIMIT
+  end
 
   def ynab_connected?
     self.ynab_access_token.present?
