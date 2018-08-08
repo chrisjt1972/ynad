@@ -13,8 +13,11 @@ Rails.application.routes.draw do
     authenticated :user do
       root to: 'dashboards#show', as: :authenticated_root
     end
+
   end
 
   get :callbacks, to: 'callbacks#new'
   post :import, to: 'ynab_imports#create'
+
+  resources :settings, only: [:index]
 end
