@@ -9,6 +9,7 @@ class DashboardsController < ApplicationController
     if budget
       @transactions = budget.accounts.map(&:transactions).flatten.select(&:within_90_days?)
       @accounts = budget.accounts
+      @category_groups = budget.category_groups
     end
   end
 
