@@ -29,4 +29,19 @@ module GraphsHelper
       prefix: '$'
     )
   end
+
+  def category_groups_pie
+    data = {}
+
+    @category_groups&.each do |category_group|
+      data[category_group.name] = category_group.categories.map(
+        &:activity_amount
+      ).sum / 1000
+    end
+
+    pie_chart(
+      data,
+      prefix: '$'
+    )
+  end
 end
