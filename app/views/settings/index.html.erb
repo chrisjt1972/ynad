@@ -6,20 +6,10 @@
     <%= render 'personal_information' %>
     <hr />
 
-    <div class="d-flex">
-      <div class="col-md-4">
-        <h5>YNAB Connection</h5>
-      </div>
-      <div class="col-md-8">
-        <% if current_user.ynab_connected? %>
-          <span class="badge badge-pill badge-success mr-2">Connected</span>
-          <%= link_to 'Disconnect', '', class: 'text-danger' %>
-        <% else %>
-          <span class="badge badge-pill badge-warning mr-2">Not Connected</span>
-          <%= link_to 'Connect', '', class: 'text-info' %>
-        <% end %>
-      </div>
-    </div>
+    <%= render 'ynab_connection' %>
+    <hr />
+
+    <%= render 'delete_account' %>
   </div>
 </div>
 
