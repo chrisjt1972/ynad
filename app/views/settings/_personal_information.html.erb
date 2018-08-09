@@ -1,0 +1,18 @@
+<div class="d-flex flex-wrap">
+  <div class="col-md-4">
+    <h5>Personal Information</h5>
+  </div>
+  <div class="col-md-8">
+    <div class="d-flex flex-wrap">
+      <div class="col-md-4">Email:</div>
+      <div class="col-md-8"><%= current_user.email %></div>
+    </div>
+  </div>
+  <div class="col-md-8 offset-md-4">
+    <div class="d-flex flex-wrap">
+      <div class="col-md-4">Password:</div>
+      <div class="col-md-8"><%= link_to 'Change Password', '', class: 'text-info'  %></div>
+    </div>
+  </div>
+</div>
+
