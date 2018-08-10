@@ -8,6 +8,10 @@ class FriendRequest < ApplicationRecord
     accepted: 'accepted'
   }.freeze
 
+  STATUSES.keys.each do |status|
+    define_method("#{status}?") { self.status == status.to_s }
+  end
+
   default_value_for :status, STATUSES[:pending]
 
   def generate_code
