@@ -65,6 +65,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { host: Settings.base_url }
+
   ActionMailer::Base.smtp_settings = {
     user_name: Settings.sendgrid_user_name,
     password: Settings.sendgrid_password,

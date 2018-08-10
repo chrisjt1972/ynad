@@ -7,7 +7,7 @@ You have been invited by <%= @friend_request.user.first_name %> to join YNAD (Yo
 Joining YNAD with <%= @friend_request.first_name %> will give you access to view each other's finances to make better spending decisions.<br />
 Click the link below to get started!<br /><br />
 
-<%= @friend_request.generate_sign_up_url %><br /><br />
+<%= link_to 'Accept Invitation', root_url(code: @friend_request.code) %><br /><br />
 
 YNAD Team
 </p>
