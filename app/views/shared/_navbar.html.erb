@@ -8,6 +8,7 @@
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
         <% if current_user.ynab_connected? %>
+          <li><%= render 'shared/add_friend' %></li>
           <li><%= render 'shared/refresh_ynab_button' %></li>
         <% else %>
           <li><%= link_to 'Connect YNAB', ynab_oauth_url, class: 'btn btn-info mr-2' %></li>

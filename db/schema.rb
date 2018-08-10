@@ -74,10 +74,9 @@ ActiveRecord::Schema.define(version: 2018_08_09_234037) do
 
   create_table "friend_requests", force: :cascade do |t|
     t.uuid "user_id"
-    t.uuid "friend_id"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["friend_id"], name: "index_friend_requests_on_friend_id"
     t.index ["user_id"], name: "index_friend_requests_on_user_id"
   end
 

@@ -10,7 +10,6 @@ class User < ApplicationRecord
 
   # Friends
   has_many :friend_requests, dependent: :destroy
-  has_many :pending_friends, through: :friend_requests, source: :friend
 
   def update_refresh_count!
     self.refresh_count += 1
