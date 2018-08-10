@@ -20,6 +20,10 @@ class FriendRequestsController < ApplicationController
   private
 
   def create_params
-    params.require(:friend_request).permit(:email)
+    params.require(:friend_request).permit(
+      :email,
+      :first_name,
+      :last_name
+    )
   end
 end
