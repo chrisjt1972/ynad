@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   resources :friend_requests
   devise_for :users
 
-  # TODO: Restrict access
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  if Rails.env.development?
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/sidekiq'
+
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 
   devise_scope :user do
     unauthenticated :user do

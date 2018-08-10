@@ -21,4 +21,7 @@ class FriendRequest < ApplicationRecord
   def sent?
     persisted? && code.present?
   end
+
+  def generate_sign_up_url
+  end
 end

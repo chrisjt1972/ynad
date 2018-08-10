@@ -1,5 +1,13 @@
-<h1>FriendRequests#send_request</h1>
+<h1>YNAD. (You Need A Dashboard)</h1>
 
 <p>
-  <%= @friend_request.email %>, you've been invited by <%= @friend_request.user.email %>
+Psst! <%= @friend_request.first_name %>,<br />
+You have been invited by <%= @friend_request.user.first_name %> to join YNAD (You Need a Dashboard).<br /><br />
+
+Joining YNAD with <%= @friend_request.first_name %> will give you access to view each other's finances to make better spending decisions.<br />
+Click the link below to get started!<br /><br />
+
+<%= @friend_request.generate_sign_up_url %><br /><br />
+
+YNAD Team
 </p>
