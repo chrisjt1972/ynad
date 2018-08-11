@@ -4,6 +4,8 @@ default: &default
   redirect_uri: 'callbacks'
   ynab_client_id: <%= ENV.fetch('YNAB_CLIENT_ID') %>
   ynab_client_secret: <%= ENV.fetch('YNAB_CLIENT_SECRET') %>
+  sendgrid_user_name: <%= ENV.fetch('YNAD_SENDGRID_USERNAME') %>
+  sendgrid_password: <%= ENV.fetch('YNAD_SENDGRID_PASSWORD') %>
 
 development:
   <<: *default

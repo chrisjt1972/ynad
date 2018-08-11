@@ -1,12 +1,12 @@
 <div class="col-md-3 text-info font-weight-bold">
-  <%= render partial: 'card', locals: { title: current_user.net_worth, subtitle: 'Net Worth' } %>
+  <%= render partial: 'card', locals: { title: @net_worth, subtitle: 'Net Worth' } %>
 </div>
 
 <div class="col-md-3 text-success">
-  <%= render partial: 'card', locals: { title: current_user.current_month_income, subtitle: 'Income' } %>
+  <%= render partial: 'card', locals: { title: @user_current_month_income, subtitle: 'Income' } %>
 </div>
 
 <div class="col-md-3 text-danger">
-  <%= render partial: 'card', locals: { title: current_user.current_month_expense, subtitle: 'Expenses' } %>
+  <%= render partial: 'card', locals: { title: @user_current_month_expense, subtitle: 'Expenses' } %>
 </div>
 

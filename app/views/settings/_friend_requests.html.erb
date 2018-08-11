@@ -1,0 +1,17 @@
+<div class="d-flex align-items-top">
+  <div class="col-md-4">
+    <h5>Friend Requests Sent</h5>
+  </div>
+  <div class="col-md-8">
+    <ul>
+      <% current_user.friend_requests.each do |friend_request| %>
+        <li>
+          <%= friend_request.email %>
+          <span class="badge badge-pill badge-<%= friend_request.accepted? ? 'success' : 'warning' %>">
+            <%= friend_request.status.capitalize %>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -3,7 +3,7 @@
     <%= render 'shared/flash_messages' %>
   </div>
 
-  <div class="border-bottom pb-5 mx-5">
+  <div class="border-bottom pb-5 mx-4">
     <div class="d-flex flex-wrap justify-content-between">
       <span class="h1"><%= current_date %></span>
 
@@ -11,6 +11,8 @@
         <%= render 'filter_form' %>
       <% end %>
     </div>
+
+    <%= render 'friends_nav' %>
   </div>
 
   <% if current_user.ynab_connected? %>

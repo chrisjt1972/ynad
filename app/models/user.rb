@@ -4,9 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
+  validates_presence_of :first_name
+
   YNAB_API_LIMIT = 200
 
   has_many :budgets
+
+  # Friends
+  has_many :friend_requests, dependent: :destroy
+  has_many :friendships
+  has_many :friends, through: :friendships
 
   def update_refresh_count!
     self.refresh_count += 1

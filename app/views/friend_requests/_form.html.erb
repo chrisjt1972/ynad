@@ -1,0 +1,8 @@
+<%= simple_form_for @friend_request do |f| %>
+  <div class="form-inputs">
+    <%= f.input :first_name, required: true, autofocus: true %>
+    <%= f.input :last_name %>
+    <%= f.input :email, required: true %>
+    <%= f.button :submit, 'Send Request', class: "btn btn-info", required: true %>
+  </div>
+<% end %>
