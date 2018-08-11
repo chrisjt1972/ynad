@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :friend_requests
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
   if Rails.env.development?
     require 'sidekiq/web'
