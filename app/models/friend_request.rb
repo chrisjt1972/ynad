@@ -10,6 +10,7 @@ class FriendRequest < ApplicationRecord
 
   STATUSES.keys.each do |status|
     define_method("#{status}?") { self.status == status.to_s }
+    scope status, -> { where(status: status) }
   end
 
   default_value_for :status, STATUSES[:pending]

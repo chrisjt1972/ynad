@@ -1,0 +1,9 @@
+<% if current_user.friend_requests.accepted.any? %>
+  <div class="btn-group mt-4" role="group">
+    <%= link_to current_user.first_name, root_path, class: "#{'active' if (params[:user] == current_user.id) || params[:user].blank?} btn btn-outline-info" %>
+    <% current_user.friends.each do |friend| %>
+      <%= link_to friend.first_name, root_path(user: friend.id), class: "#{'active' if params[:user] == @user.id} btn btn-outline-info" %>
+    <% end %>
+    <%= link_to 'All', root_path(user: 'all'), class: "#{'active' if params[:user]&.downcase == 'all'} btn btn-outline-info" %>
+  </div>
+<% end %>
