@@ -81,6 +81,9 @@ group :development, :test do
 
   gem 'pry'
   gem 'pry-nav'
+
+  # Fake data
+  gem 'faker'
 end
 
 group :development do

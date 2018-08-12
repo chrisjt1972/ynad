@@ -1,11 +1,11 @@
 User.where(email: ['john@example.com', 'mary@example.com']).each do |user|
   user.budgets.each do |budget|
-    ['Chase', 'Bank of America'].each do |bank|
+    5.times do
       budget.accounts.create!(
-        name: bank,
+        name: Faker::Bank.name,
         ynab_id: SecureRandom.uuid,
         kind: 'checking',
-        balance: [1500035, 2432081].sample
+        balance: Random.rand(10000..10000000)
       )
     end
   end
