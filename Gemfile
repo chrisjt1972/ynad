@@ -72,12 +72,18 @@ gem 'default_value_for'
 # Mailer
 gem 'sendgrid-ruby'
 
+# Seed data
+gem 'seed-fu', '~> 2.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'pry'
   gem 'pry-nav'
+
+  # Fake data
+  gem 'faker'
 end
 
 group :development do
