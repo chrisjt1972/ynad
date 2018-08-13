@@ -33,12 +33,7 @@ class User < ApplicationRecord
   end
 
   def primary_budget
-    if budgets.primary.present?
-      budgets.primary
-    else
-      budgets.first.update(primary: true)
-      budgets.primary
-    end
+    budgets.primary
   end
 
   def fetch_access_token(code)
