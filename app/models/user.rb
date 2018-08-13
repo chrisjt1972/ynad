@@ -32,6 +32,15 @@ class User < ApplicationRecord
     ::OAuth::YNAB::Client.new.authorization_url
   end
 
+  def primary_budget
+    if budgets.primary.present?
+      budgets.primary
+    else
+      budgets.first.update(primary: true)
+      budgets.primary
+    end
+  end
+
   def fetch_access_token(code)
     ::OAuth::YNAB::Client.new.fetch_access_token(code)
   end

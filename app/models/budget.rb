@@ -6,4 +6,6 @@ class Budget < ApplicationRecord
 
   validates_uniqueness_of :ynab_id
   validates_presence_of :name, :ynab_id
+
+  scope :primary, -> { where(primary: true).first }
 end
