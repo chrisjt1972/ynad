@@ -17,4 +17,8 @@ class Budget < ApplicationRecord
       first
     end
   end
+
+  def self.reset_primary
+    primary.update!(primary: false)
+  end
 end

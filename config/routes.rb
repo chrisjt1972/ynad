@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   post :import, to: 'ynab_imports#create'
 
   resources :settings, only: [:index]
+
+  resources :budgets, only: [:update]
 end
