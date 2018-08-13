@@ -5,7 +5,7 @@
       current_user.budgets,
       'id',
       'name',
-      selected: (params[:budget_id] || current_user.budgets.first)
+      selected: (params[:budget_id] || current_user.primary_budget.id)
     ),
     class: 'form-control mr-2'
   ) %>

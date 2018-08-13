@@ -4,7 +4,7 @@
 Psst! <%= @friend_request.first_name %>,<br />
 You have been invited by <%= @friend_request.user.first_name %> to join YNAD (You Need a Dashboard).<br /><br />
 
-Joining YNAD with <%= @friend_request.first_name %> will give you access to view each other's finances to make better spending decisions.<br />
+Joining YNAD with <%= @friend_request.user.first_name %> will give you access to view each other's finances to make better spending decisions.<br />
 Click the link below to get started!<br /><br />
 
 <%= link_to 'Accept Invitation', root_url(code: @friend_request.code) %><br /><br />

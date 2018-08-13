@@ -1,0 +1,27 @@
+<div class="d-flex align-items-top">
+  <div class="col-md-4">
+    <h5>Budgets</h5>
+  </div>
+  <div class="col-md-8">
+    <ul>
+      <% current_user.budgets.each do |budget| %>
+        <li>
+          <span class="font-weight-bold"><%= budget.name %></span>
+          <% if budget.primary? %>
+            <span class="badge badge-pill badge-info">
+              Primary
+            </span>
+          <% else %>
+            <%= link_to 'Make Primary', budget_path(budget.id),
+              class: 'text-info',
+              title: 'Make this your primary budget',
+              rel: 'tooltip',
+              method: :patch,
+              remote: true
+            %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
