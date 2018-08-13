@@ -10,5 +10,7 @@
     class: 'form-control mr-2'
   ) %>
 
-  <%= submit_tag 'Filter', class: 'btn btn-info' %>
+  <%= button_tag type: :submit, value: :commit, class: 'btn btn-info' do %>
+    <%= icon('fas', 'filter') %>&nbsp; Filter
+  <% end %>
 <% end %>
