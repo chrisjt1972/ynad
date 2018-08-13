@@ -14,11 +14,11 @@
 
 <% else %>
   <%= link_to(
-    'Refresh YNAB Data',
     import_path,
     method: :post,
     class: 'btn btn-info mr-2'
-  )
-%>
+  ) do %>
+    <%= icon('fas', 'sync') %>&nbsp; YNAB Data
+  <% end %>
 <% end %>
 

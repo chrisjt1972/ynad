@@ -6,6 +6,7 @@ default: &default
   ynab_client_secret: <%= ENV.fetch('YNAB_CLIENT_SECRET') %>
   sendgrid_user_name: <%= ENV.fetch('YNAD_SENDGRID_USERNAME') %>
   sendgrid_password: <%= ENV.fetch('YNAD_SENDGRID_PASSWORD') %>
+  personal_email: 'pradyumna2905@gmail.com'
 
 development:
   <<: *default

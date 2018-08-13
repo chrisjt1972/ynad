@@ -13,5 +13,8 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= yield %>
+    <div class="pt-lg-5 my-lg-5 my-4">
+      <%= render 'shared/footer' unless current_user %>
+    </div>
   </body>
 </html>
