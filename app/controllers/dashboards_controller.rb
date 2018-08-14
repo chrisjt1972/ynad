@@ -7,11 +7,11 @@ class DashboardsController < ApplicationController
       @transactions = budget.accounts.map(&:transactions).flatten.select(&:within_90_days?)
       @accounts = budget.accounts
       @category_groups = budget.category_groups.without_ynab_internal_categories
-    end
 
-    @user_current_month_income = @user.current_month_income
-    @user_current_month_expense = @user.current_month_expense
-    @net_worth = @user.net_worth
+      @user_current_month_income = @user.current_month_income
+      @user_current_month_expense = @user.current_month_expense
+      @net_worth = @user.net_worth
+    end
   end
 
   private
@@ -29,10 +29,12 @@ class DashboardsController < ApplicationController
   end
 
   def get_budget_from_params
-    if show_params[:budget_id]
-      @user.budgets.find(show_params[:budget_id])
-    else
-      @user&.primary_budget
+    if @user.budgets.any?
+      if show_params[:budget_id]
+        @user.budgets.find(show_params[:budget_id])
+      else
+        @user.primary_budget
+      end
     end
   end
 
