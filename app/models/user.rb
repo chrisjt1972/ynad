@@ -41,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def accounts
-    budgets.map(&:accounts).flatten
+    primary_budget.accounts
   end
 
   def current_month_expense
