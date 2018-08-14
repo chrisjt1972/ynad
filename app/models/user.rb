@@ -63,4 +63,8 @@ class User < ApplicationRecord
   def net_worth
     accounts.sum(&:balance) / 1000
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
