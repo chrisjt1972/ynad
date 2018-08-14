@@ -1,5 +1,5 @@
 <% if current_user.friends.any? %>
-  <div class="btn-group mt-4" role="group">
+  <div class="btn-group mt-3" role="group">
     <%= link_to current_user.first_name, root_path, class: "#{'active' if current_user_nav_active?} btn btn-outline-info" %>
     <% current_user.friends.each do |friend| %>
       <%= link_to friend.first_name, root_path(user: friend.id), class: "#{'active' if friends_nav_active?} btn btn-outline-info" %>
