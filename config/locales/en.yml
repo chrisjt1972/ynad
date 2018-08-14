@@ -30,4 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  tooltips:
+    net_worth_card: "This is your current net worth calculated from your assets and debt."
+    income_card: "Income for current month (%{current_month}, %{current_year})"
+    expense_card: "Expense for current month (%{current_month}, %{current_year})"
+    ynab_api_limit_reached: "YNAB has an API limit of 200/hour. To honor that, we restrict to refresh YNAB at most 5 times an hour."

@@ -15,6 +15,11 @@
 //= require Chart.bundle
 //= require chartkick
 //= require turbolinks
+//= require popper
 //= require jquery3
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

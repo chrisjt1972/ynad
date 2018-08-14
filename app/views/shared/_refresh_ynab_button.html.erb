@@ -1,22 +1,14 @@
 <% if ynab_api_limit_reached? %>
-  <%= link_to 'Why can\'t I refresh YNAB?', '', class: 'nav-link text-info dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' } %>
-
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <div class="px-5 lead">
-      <p>
-      YNAB has a rate-limit of 200 requests per hour so applications don't stall their servers.
-      To respect that rate limit and uninterrupted service, we limit our users from refreshing
-      more than 200 times as well. For your help, you can see how much time you have before you can refresh.
-      </p>
-    </div>
-  </div>
-  </li>
+  <%= link_to 'Why can\'t I refresh YNAB?', '', class: 'nav-link text-info',
+  data: { toggle: 'tooltip', placement: 'bottom', title: ynab_api_limit_reached_tooltip }
+%>
 
 <% else %>
   <%= link_to(
     import_path,
     method: :post,
-    class: 'btn btn-info mr-2'
+    class: 'btn btn-info mr-2',
+    title: 'Sync YNAB data'
   ) do %>
     <%= icon('fas', 'sync') %>&nbsp; YNAB Data
   <% end %>
