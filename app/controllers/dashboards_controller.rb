@@ -32,7 +32,7 @@ class DashboardsController < ApplicationController
     if show_params[:budget_id]
       @user.budgets.find(show_params[:budget_id])
     else
-      @user&.budgets&.first
+      @user&.primary_budget
     end
   end
 

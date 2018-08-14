@@ -8,21 +8,21 @@
       <span class="h1"><%= current_date %></span>
 
       <% if current_user.budgets.any? %>
-        <%= render 'filter_form' %>
+        <%= render 'dashboards/filter_form' %>
       <% end %>
     </div>
 
-    <%= render 'friends_nav' %>
+    <%= render 'dashboards/friends_nav' %>
   </div>
 
   <% if current_user.ynab_connected? %>
     <div class="my-5">
       <div class="d-flex flex-wrap justify-content-center mt-4">
-        <%= render 'cards' %>
+        <%= render 'dashboards/cards' %>
       </div>
 
       <div class="my-5 mx-5">
-        <%= render 'graphs' %>
+        <%= render 'dashboards/graphs' %>
       </div>
     </div>
   <% else %>

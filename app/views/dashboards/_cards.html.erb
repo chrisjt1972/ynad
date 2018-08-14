@@ -1,12 +1,12 @@
 <div class="col-md-3 text-info font-weight-bold">
-  <%= render partial: 'card', locals: { title: @net_worth, subtitle: 'Net Worth' } %>
+  <%= render partial: 'dashboards/card', locals: { title: number_to_currency(@net_worth, unit: ''), subtitle: 'Net Worth' } %>
 </div>
 
 <div class="col-md-3 text-success">
-  <%= render partial: 'card', locals: { title: @user_current_month_income, subtitle: 'Income' } %>
+  <%= render partial: 'dashboards/card', locals: { title: number_to_currency(@user_current_month_income, unit: ''), subtitle: 'Income' } %>
 </div>
 
 <div class="col-md-3 text-danger">
-  <%= render partial: 'card', locals: { title: @user_current_month_expense, subtitle: 'Expenses' } %>
+  <%= render partial: 'dashboards/card', locals: { title: number_to_currency(@user_current_month_expense, unit: ''), subtitle: 'Expenses' } %>
 </div>
 
