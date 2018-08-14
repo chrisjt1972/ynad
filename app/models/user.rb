@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name
 
-  YNAB_API_LIMIT = 200
+  YNAB_API_LIMIT = Rails.env.development? ? 200 : 5
 
   has_many :budgets
 
@@ -17,11 +17,13 @@ class User < ApplicationRecord
 
   def update_refresh_count!
     self.refresh_count += 1
+    self.ynab_last_refreshed_at = Time.current
     self.save!
   end
 
   def ynab_api_limit_reached?
-    refresh_count >= YNAB_API_LIMIT
+    refresh_exceeds_limit? &&
+      !last_refresh_performed_more_than_an_hour_ago?
   end
 
   def ynab_connected?
@@ -66,5 +68,15 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  private
+
+  def refresh_exceeds_limit?
+    refresh_count >= YNAB_API_LIMIT
+  end
+
+  def last_refresh_performed_more_than_an_hour_ago?
+    ynab_last_refreshed_at <= 1.hour.ago
   end
 end
