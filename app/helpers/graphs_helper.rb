@@ -3,7 +3,11 @@ module GraphsHelper
     data = {}
 
     @transactions&.each do |transaction|
-      data[transaction.date.strftime('%d, %B %Y')] = transaction.amount / 1000
+      if data[transaction.date.strftime('%d, %B %Y')].present?
+        data[transaction.date.strftime('%d, %B %Y')] += transaction.amount / 1000
+      else
+        data[transaction.date.strftime('%d, %B %Y')] = transaction.amount / 1000
+      end
     end
 
     area_chart(
@@ -19,7 +23,11 @@ module GraphsHelper
     data = {}
 
     @accounts&.each do |account|
-      data[account.name] = account.balance / 1000
+      if data[account.name].present?
+        data[account.name] += account.balance / 1000
+      else
+        data[account.name] = account.balance / 1000
+      end
     end
 
     bar_chart(
@@ -34,9 +42,15 @@ module GraphsHelper
     data = {}
 
     @category_groups&.each do |category_group|
-      data[category_group.name] = category_group.categories.map(
-        &:activity_amount
-      ).sum / 1000
+      if data[category_group.name].present?
+        data[category_group.name] += category_group.categories.map(
+          &:activity_amount
+        ).sum / 1000
+      else
+        data[category_group.name] = category_group.categories.map(
+          &:activity_amount
+        ).sum / 1000
+      end
     end
 
     pie_chart(

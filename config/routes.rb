@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :settings, only: [:index]
 
   resources :budgets, only: [:update]
+  resources :filters, only: [:index]
 
   get '/privacy_policy', to: 'legal/privacy_policies#index'
 end
