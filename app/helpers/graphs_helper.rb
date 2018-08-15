@@ -59,4 +59,16 @@ module GraphsHelper
       prefix: '$'
     )
   end
+
+  def cashflow_tooltip
+    t('tooltips.cashflow')
+  end
+
+  def bank_balances_tooltip
+    t('tooltips.bank_balances')
+  end
+
+  def expenses_by_category_tooltip
+    t('tooltips.expenses_by_category')
+  end
 end
