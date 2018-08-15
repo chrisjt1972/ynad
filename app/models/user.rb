@@ -8,12 +8,16 @@ class User < ApplicationRecord
 
   YNAB_API_LIMIT = Rails.env.development? ? 200 : 5
 
+  # Budgets
   has_many :budgets
 
   # Friends
   has_many :friend_requests, dependent: :destroy
   has_many :friendships
   has_many :friends, through: :friendships
+
+  # Preference
+  has_one :preference
 
   def update_refresh_count!
     self.refresh_count += 1
