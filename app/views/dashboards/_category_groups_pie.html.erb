@@ -1,2 +1,8 @@
-<p class="h4 mb-4">Expenses by Category Groups</p>
+<span class="d-flex justify-items-center align-items-baseline">
+  <p class="h4 mb-5">Expenses by Category Groups</p>
+  <%= link_to icon('fas', 'question-circle'), '',
+    class: 'ml-2 text-muted',
+    data: { toggle: 'tooltip', placement: 'bottom', title: expenses_by_category_tooltip }
+  %>
+</span>
 <%= category_groups_pie %>
