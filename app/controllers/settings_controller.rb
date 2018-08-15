@@ -1,4 +1,5 @@
 class SettingsController < ApplicationController
   def index
+    @preference = current_user.preference
   end
 end

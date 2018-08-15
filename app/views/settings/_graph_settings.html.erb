@@ -1,0 +1,19 @@
+<div class="d-flex">
+  <div class="col-md-4">
+    <h5>Graph Settings</h5>
+  </div>
+  <div class="col-md-8">
+    <%= simple_form_for @preference do |f| %>
+      <span class="d-flex align-items-baseline">
+        <%= f.input :graph_point_enabled, as: :boolean, checked_value: 'true', unchecked_value: 'false' %>
+        <%= f.submit 'Save', class: 'ml-2 btn btn-outline-info' %>
+        <%= link_to icon('fas', 'question-circle'), '',
+          class: 'ml-2 text-muted',
+          data: { toggle: 'tooltip', placement: 'bottom', title: graph_point_enabled_tooltip }
+        %>
+      </span>
+    <% end %>
+  </div>
+</div>
+
+

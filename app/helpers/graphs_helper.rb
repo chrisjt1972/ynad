@@ -15,7 +15,8 @@ module GraphsHelper
       label: 'Amount',
       xtitle: 'Last 90 days',
       colors: ['#1E8495'],
-      prefix: '$'
+      prefix: '$',
+      points: current_user.preference.graph_point_enabled
     )
   end
 
