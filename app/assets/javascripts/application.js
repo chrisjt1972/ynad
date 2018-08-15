@@ -14,7 +14,6 @@
 //= require activestorage
 //= require Chart.bundle
 //= require chartkick
-//= require turbolinks
 //= require popper
 //= require jquery3
 //= require bootstrap-sprockets
