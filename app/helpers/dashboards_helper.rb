@@ -36,6 +36,17 @@ module DashboardsHelper
     end
   end
 
+  def card_border_top_class(title)
+    case title
+    when 'Net Worth'
+      "border-top-info"
+    when 'Income'
+      "border-top-success"
+    when 'Expense'
+      "border-top-danger"
+    end
+  end
+
   def ynab_api_limit_reached_tooltip
     t('tooltips.ynab_api_limit_reached')
   end
