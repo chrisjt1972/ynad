@@ -19,6 +19,9 @@ class User < ApplicationRecord
   # Preference
   has_one :preference
 
+  # Callbacks
+  after_create :setup_user_preference
+
   def update_refresh_count!
     self.refresh_count += 1
     self.ynab_last_refreshed_at = Time.current
@@ -82,5 +85,9 @@ class User < ApplicationRecord
 
   def last_refresh_performed_more_than_an_hour_ago?
     ynab_last_refreshed_at <= 1.hour.ago
+  end
+
+  def setup_user_preference
+    self.create_preference
   end
 end
