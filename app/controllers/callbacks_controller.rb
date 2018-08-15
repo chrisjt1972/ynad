@@ -7,7 +7,9 @@ class CallbacksController < ApplicationController
     else
       YNABImportJob.perform_later(user_id: current_user.id)
 
-      flash[:success] = 'YNAB has successfully connected. Your data will be imported shortly.'
+      flash[:success] = I18n.t(
+        'messages.ynab.connection_successful'
+      )
     end
 
     redirect_to root_url

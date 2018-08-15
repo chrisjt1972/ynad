@@ -35,3 +35,6 @@ en:
     income_card: "Income for current month (%{current_month}, %{current_year})"
     expense_card: "Expense for current month (%{current_month}, %{current_year})"
     ynab_api_limit_reached: "YNAB has an API limit of 200/hour. To honor that, we restrict to refresh YNAB at most 5 times an hour."
+  messages:
+    ynab:
+      connection_successful: "YNAB has been successfully connected. Your data will be imported shortly. Feel free to refresh this page."
