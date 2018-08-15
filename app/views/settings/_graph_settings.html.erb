@@ -7,6 +7,10 @@
       <span class="d-flex align-items-baseline">
         <%= f.input :graph_point_enabled, as: :boolean, checked_value: 'true', unchecked_value: 'false' %>
         <%= f.submit 'Save', class: 'ml-2 btn btn-outline-info' %>
+        <%= link_to icon('fas', 'question-circle'), '',
+          class: 'ml-2 text-muted',
+          data: { toggle: 'tooltip', placement: 'bottom', title: graph_point_enabled_tooltip }
+        %>
       </span>
     <% end %>
   </div>
