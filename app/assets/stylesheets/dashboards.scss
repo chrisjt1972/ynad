@@ -1,3 +1,20 @@
 // Place all the styles related to the dashboards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$border-thickness: 5px;
+$color-info: #24A2B7;
+$color-success: #30A64A;
+$color-danger: #DA3749;
+
+.border-top-info {
+  border-top: $border-thickness solid $color-info !important;
+}
+
+.border-top-success {
+  border-top: $border-thickness solid $color-success !important;
+}
+
+.border-top-danger {
+  border-top: $border-thickness solid $color-danger !important;
+}
