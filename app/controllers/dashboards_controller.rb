@@ -11,6 +11,11 @@ class DashboardsController < ApplicationController
       @user_current_month_income = @user.current_month_income
       @user_current_month_expense = @user.current_month_expense
       @net_worth = @user.net_worth
+
+      @last_week_income = @transactions.select(&:last_week?).select(&:income?).
+        sort_by(&:date).reverse
+      @last_week_expense = @transactions.select(&:last_week?).select(&:expense?).
+        sort_by(&:date).reverse
     end
   end
 

@@ -9,6 +9,14 @@ class Transaction < ApplicationRecord
                   Time.now.end_of_month)
   end
 
+  def last_week?
+    date.between?(7.days.ago, Date.current)
+  end
+
+  def from_last_week
+    select { |txn| txn.last_week? }
+  end
+
   def within_90_days?
     date.between?(90.days.ago.beginning_of_month,
                   Time.now.end_of_month)
@@ -20,5 +28,9 @@ class Transaction < ApplicationRecord
 
   def income?
     amount > 0
+  end
+
+  def ynad_date
+    date.strftime('%d %B')
   end
 end

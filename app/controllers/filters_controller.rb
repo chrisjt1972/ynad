@@ -18,7 +18,12 @@ class FiltersController < ApplicationController
     @user_current_month_income = @user.map(&:current_month_income).compact.sum
     @user_current_month_expense = @user.map(&:current_month_expense).compact.sum
     @net_worth = @user.map(&:net_worth).compact.sum
-
+    #
+    # @last_week_income = @transactions.select(&:last_week?).select(&:income?).
+    #   sort_by(&:date).reverse
+    # @last_week_expense = @transactions.select(&:last_week?).select(&:expense?).
+    #   sort_by(&:date).reverse
+    #
     render template: 'dashboards/show'
   end
 

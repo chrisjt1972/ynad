@@ -4,6 +4,6 @@
     <% current_user.friends.each do |friend| %>
       <%= link_to friend.first_name, root_path(user: friend.id), class: "#{'active' if friends_nav_active?} btn btn-outline-info" %>
     <% end %>
-    <%= link_to 'All', filters_path(user: 'all'), class: "#{'active' if all_nav_active?} btn btn-outline-info" %>
+    <%# <%= link_to 'All', filters_path(user: 'all'), class: "#{'active' if all_nav_active?} btn btn-outline-info" %>
   </div>
 <% end %>
