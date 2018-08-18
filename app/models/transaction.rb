@@ -1,6 +1,8 @@
 class Transaction < ApplicationRecord
   belongs_to :account
 
+  validates_presence_of :ynab_id
+
   def current_month?
     date.between?(Time.now.beginning_of_month,
                   Time.now.end_of_month)

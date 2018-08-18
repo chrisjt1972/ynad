@@ -18,6 +18,9 @@ module YNAB
               account,
               transaction_params(transaction)
             ).execute
+
+          rescue ActiveRecord::RecordInvalid => e
+            next
           end
         end
       end
@@ -26,7 +29,7 @@ module YNAB
     private
 
     def transaction_exists?(ynab_transaction)
-      current_user.transactions.find_by(ynab_id: ynab_transaction.id).present?
+      Transaction.find_by(ynab_id: ynab_transaction.id).present?
     end
 
     def transaction_params(transaction)
