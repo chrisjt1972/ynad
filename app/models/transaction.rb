@@ -2,6 +2,7 @@ class Transaction < ApplicationRecord
   belongs_to :account
 
   validates_presence_of :ynab_id
+  validates_uniqueness_of :ynab_id, scope: :account_id
 
   def current_month?
     date.between?(Time.now.beginning_of_month,
