@@ -26,7 +26,7 @@ module YNAB
     private
 
     def transaction_exists?(ynab_transaction)
-      Transaction.find_by(ynab_id: ynab_transaction.id).present?
+      current_user.transactions.find_by(ynab_id: ynab_transaction.id).present?
     end
 
     def transaction_params(transaction)
