@@ -39,7 +39,8 @@ module YNAB
         cleared: transaction.cleared,
         approved: transaction.approved,
         deleted: transaction.deleted,
-        ynab_id: transaction.id
+        ynab_id: transaction.id,
+        payee: transaction.payee_name
       }
     end
   end

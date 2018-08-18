@@ -1,0 +1,25 @@
+<table class="table text-left">
+  <thead>
+    <tr>
+      <th scope="">Date</th>
+      <th scope="">Payee</th>
+      <th scope="">Account</th>
+      <th scope="">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @last_week_income&.each do |transaction| %>
+      <tr>
+        <td><%= transaction.ynad_date %></td>
+        <td><%= transaction.payee %></td>
+        <td><%= transaction.account.name %></td>
+        <td class="h6">
+          <span class="badge badge-pill badge-success">
+            <%= number_to_currency(transaction.amount / 1000) %>
+          </span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
