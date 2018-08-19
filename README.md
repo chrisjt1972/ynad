@@ -4,7 +4,7 @@ YNAD is built for the [YNAB API Contest](https://www.youneedabudget.com/contest-
 
 ---
 
-YNAD aggregates your YNAB data and presents various elements and pieces of information that will be helpful in making wiser spending decisions.
+YNAD aggregates your [YNAB](https://www.youneedabudget.com/) data and presents various elements and pieces of information that will be helpful in making wiser spending decisions.
 
 Here's a sample dashboard
 
