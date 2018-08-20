@@ -1,4 +1,4 @@
-User.where(email: ['john@example.com', 'mary@example.com']).each do |user|
+User.where(email: ['john@ynad.com', 'mary@ynad.com']).each do |user|
   2.times do |index|
     Budget.seed do |s|
       s.user_id = user.id
