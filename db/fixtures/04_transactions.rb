@@ -11,7 +11,7 @@ User.where(email: ['john@ynad.com', 'mary@ynad.com']).each do |user|
     end
 
     # Income
-    2.times do
+    3.times do
       account.transactions.create!(
         date: Faker::Date.backward(90),
         amount: Random.rand(1000..5000) * 1000,
