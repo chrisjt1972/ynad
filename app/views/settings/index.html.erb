@@ -13,20 +13,22 @@
     </span>
     <hr />
 
-    <span class="p-5">
-      <%= render 'graph_settings' %>
-    </span>
-    <hr />
+    <% if current_user.ynab_connected? %>
+      <span class="p-5">
+        <%= render 'graph_settings' %>
+      </span>
+      <hr />
 
-    <span class="p-5">
-      <span id="budgets-list"><%= render 'budgets' %></span>
-    </span>
-    <hr />
+      <span class="p-5">
+        <span id="budgets-list"><%= render 'budgets' %></span>
+      </span>
+      <hr />
 
-    <span class="p-5">
-      <%= render 'friend_requests' %>
-    </span>
-    <hr />
+      <span class="p-5">
+        <%= render 'friend_requests' %>
+      </span>
+      <hr />
+    <% end %>
 
     <span class="p-5">
       <%= render 'delete_account' %>

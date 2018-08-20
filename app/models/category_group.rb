@@ -1,6 +1,6 @@
 class CategoryGroup < ApplicationRecord
   belongs_to :budget
-  has_many :categories
+  has_many :categories, dependent: :destroy
 
   validates_uniqueness_of :ynab_id
   validates_presence_of :name, :ynab_id
