@@ -12,9 +12,9 @@
               Primary
             </span>
           <% else %>
-            <%= link_to 'Make Primary', budget_path(budget.id),
+            <%= link_to 'Set Primary', budget_path(budget.id),
               class: 'text-info',
-              title: 'Make this your primary budget',
+              title: 'Set this as your primary budget',
               rel: 'tooltip',
               method: :patch,
               remote: true
