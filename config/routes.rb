@@ -32,4 +32,5 @@ Rails.application.routes.draw do
   resources :preferences, only: [:update]
 
   get '/privacy_policy', to: 'legal/privacy_policies#index'
+  post '/disconnect_ynab', to: 'settings#disconnect_ynab'
 end

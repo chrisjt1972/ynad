@@ -77,6 +77,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def disconnect_ynab
+    update(ynab_access_token: nil)
+  end
+
   private
 
   def refresh_exceeds_limit?

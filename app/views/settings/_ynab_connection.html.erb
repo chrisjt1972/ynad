@@ -5,10 +5,10 @@
   <div class="col-md-8">
     <% if current_user.ynab_connected? %>
       <span class="badge badge-pill badge-success mr-2">Connected</span>
-      <%= link_to 'Disconnect', '', class: 'text-danger' %>
+      <%= link_to 'Disconnect', disconnect_ynab_path, method: :post, class: 'text-danger' %>
     <% else %>
       <span class="badge badge-pill badge-warning mr-2">Not Connected</span>
-      <%= link_to 'Connect', '', class: 'text-info' %>
+      <%= link_to 'Connect', ynab_oauth_url, class: 'text-info' %>
     <% end %>
   </div>
 </div>
