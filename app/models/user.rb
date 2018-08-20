@@ -29,8 +29,9 @@ class User < ApplicationRecord
   end
 
   def ynab_api_limit_reached?
-    refresh_exceeds_limit? &&
-      !last_refresh_performed_more_than_an_hour_ago?
+    false
+    # refresh_exceeds_limit? &&
+    #   !last_refresh_performed_more_than_an_hour_ago?
   end
 
   def ynab_connected?
