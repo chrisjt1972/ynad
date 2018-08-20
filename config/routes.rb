@@ -33,4 +33,5 @@ Rails.application.routes.draw do
 
   get '/privacy_policy', to: 'legal/privacy_policies#index'
   post '/disconnect_ynab', to: 'settings#disconnect_ynab'
+  delete '/destroy_user', to: 'settings#destroy_user'
 end

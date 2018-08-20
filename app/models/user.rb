@@ -9,12 +9,12 @@ class User < ApplicationRecord
   YNAB_API_LIMIT = Rails.env.development? ? 200 : 5
 
   # Budgets
-  has_many :budgets
+  has_many :budgets, dependent: :destroy
 
   # Friends
   has_many :friend_requests, dependent: :destroy
   has_many :friendships
-  has_many :friends, through: :friendships
+  has_many :friends, through: :friendships, dependent: :destroy
 
   # Preference
   has_one :preference

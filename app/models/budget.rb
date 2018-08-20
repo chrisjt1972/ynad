@@ -1,8 +1,8 @@
 class Budget < ApplicationRecord
   belongs_to :user
-  has_many :category_groups
+  has_many :category_groups, dependent: :destroy
   has_many :budget_accounts
-  has_many :accounts, through: :budget_accounts
+  has_many :accounts, through: :budget_accounts, dependent: :destroy
 
   validates_uniqueness_of :ynab_id
   validates_presence_of :name, :ynab_id

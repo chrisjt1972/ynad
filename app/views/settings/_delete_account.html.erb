@@ -3,6 +3,6 @@
     <h5>Delete Your Account</h5>
   </div>
   <div class="col-md-8">
-    <button type="button" class="btn btn-outline-danger">Delete Account</button>
+    <%= link_to 'Delete Account', destroy_user_path, method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Please note that all your data will be deleted. Are you sure you want to proceed?' } %>
   </div>
 </div>
