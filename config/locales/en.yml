@@ -32,13 +32,15 @@
 en:
   tooltips:
     net_worth_card: "This is your current net worth calculated from your assets and debt."
-    income_card: "Income for current month (%{current_month}, %{current_year})"
-    expense_card: "Expense for current month (%{current_month}, %{current_year})"
+    income_card: "Income for current month (%{current_month} %{current_year})."
+    expense_card: "Expenses for current month (%{current_month} %{current_year})."
     ynab_api_limit_reached: "YNAB has an API limit of 200/hour. To honor that, we restrict to refresh YNAB at most 5 times an hour."
-    graph_point_enabled: "Unchecking this will yield the cashflow graphs without the points."
+    graph_point_enabled: "Unchecking this will display the cashflow graphs without the plot points."
     cashflow: 'Cashflow is your income and expenses for the selected budget.'
-    bank_balances: 'Your balances by bank for the selected budget'
-    expenses_by_category: 'These are your expenses by category groups for the selected budget.'
+    bank_balances: 'Your balances by bank for the selected budget.'
+    expenses_by_category: "These are your expenses by category groups for the selected budget."
   messages:
     ynab:
       connection_successful: "YNAB has been successfully connected. Your data will be imported shortly. Feel free to refresh this page."
+    partner:
+      only_primary_shared: "Your partner will only be able to view data from your Primary budget. To change your Primary budget go to 'Account > Budgets'."
